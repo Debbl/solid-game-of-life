@@ -4,7 +4,6 @@ import {
   Index,
   onMount,
   onCleanup,
-  For,
 } from "solid-js";
 import { getAdjoinCount } from "./utils";
 import patterns from "./assets/patterns.json";
@@ -67,16 +66,16 @@ const App: Component = () => {
         </button>
       </div>
       <div class="flex w-[32rem] flex-wrap mx-auto">
-        <For each={board()} fallback={<div>loading...</div>}>
+        <Index each={board()} fallback={<div>loading...</div>}>
           {(cell, index) => (
             <div class="flex">
               <button
-                class={`border w-8 h-8 ${cell === 1 ? "bg-black" : ""}`}
-                onClick={() => handleCellClick(index())}
+                class={`border w-8 h-8 ${cell() === 1 ? "bg-black" : ""}`}
+                onClick={() => handleCellClick(index)}
               ></button>
             </div>
           )}
-        </For>
+        </Index>
       </div>
     </div>
   );
