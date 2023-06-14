@@ -1,9 +1,9 @@
 import {
-  createSignal,
   type Component,
   Index,
-  onMount,
+  createSignal,
   onCleanup,
+  onMount,
 } from "solid-js";
 import { getAdjoinCount } from "./utils";
 import patterns from "./assets/patterns.json";
@@ -65,14 +65,14 @@ const App: Component = () => {
           next
         </button>
       </div>
-      <div class="flex w-[32rem] flex-wrap mx-auto">
+      <div class="mx-auto flex w-[32rem] flex-wrap">
         <Index each={board()} fallback={<div>loading...</div>}>
           {(cell, index) => (
             <div class="flex">
               <button
-                class={`border w-8 h-8 ${cell() === 1 ? "bg-black" : ""}`}
+                class={`h-8 w-8 border ${cell() === 1 ? "bg-black" : ""}`}
                 onClick={() => handleCellClick(index)}
-              ></button>
+              />
             </div>
           )}
         </Index>

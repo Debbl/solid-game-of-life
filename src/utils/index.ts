@@ -1,4 +1,4 @@
-import { TSize } from "../types";
+import type { TSize } from "../types";
 
 const getAdjoinCount = (i: number, board: (0 | 1)[], size: TSize) => {
   const adjoin = [
